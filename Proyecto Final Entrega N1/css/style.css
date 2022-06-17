@@ -1,0 +1,52 @@
+body {
+    background-color: aquamarine;
+}
+
+.container {
+    height: 90vh;
+    width: 90%;
+    background-color: rgb(212, 230, 233);
+    margin: auto;
+    border: 1px solid black;
+    box-shadow: 20px 20px 5px gray;
+}
+
+h1 {
+    border-bottom: 5px solid darkorange;
+    font-size: xxx-large;
+}
+
+.div1 {
+    text-align: center;
+    height: 100%;
+}
+
+ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+}
+
+#primerDia {
+    grid-column-start: 5;
+}
+
+.diasSemana {
+    background-color: rgb(25, 203, 216);
+    font-size: xx-large;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.efectoDia {
+    border: 1px solid black;
+    padding: 15px;
+    font-size: xx-large;
+    background-color: darkorange;
+    
+}
+
+.efectoDia:hover {
+    color: white;
+}
