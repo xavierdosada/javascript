@@ -1,0 +1,166 @@
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 2% 0% 0% 0%;
+    background-color: #F9F2ED;
+    color: #fff;
+}
+
+.container {
+    height: 90%;
+    justify-items: center;
+    justify-content: center;
+    background-color: #3ab0ff;
+    padding: 0% 3% 3% 3%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xxx-large;
+    text-shadow: 1px 1px 2px #F87474;
+}
+
+ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+}
+
+#primerDia {
+    grid-column-start: 5;
+}
+
+.diasSemana {
+    display: flex;
+    justify-content: center;
+    background-color: #FFA33B;
+    text-shadow: 1px 1px 1px black;
+    font-size: xx-large;
+}
+
+.efectoDia {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #CC832F;
+    padding: 15px;
+    font-size: xx-large;
+    background-color: #FFB562;
+    text-shadow: 1px 1px 2px black;
+    
+}
+
+.efectoDia:hover {
+    color: white;
+}
+
+/* VENTANA MODAL */
+
+body, .modal{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0,0,0,0.5);
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btn-modal:checked ~ .modal{
+    opacity: 1;
+    visibility: visible;
+}
+
+.contenedor {
+    width: 400px;
+    height: 80vh;
+    margin: auto;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 50px;
+    background: #fff;
+    box-shadow: 1px 7px 25px rgba(0, 0, 0, 0,6);
+    transition: all 500ms ease;
+    position: relative;
+    transform: translateY(-30%);
+}
+
+#btn-modal:checked ~ .modal .contenedor{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.contenedor header{
+    background: #FFB562;
+    padding: 10px 10px 10px 30px;
+    color: #fff;
+    border-top-left-radius: 50px;
+    font-size: large;
+}
+
+.contenedor label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid black;
+    color: black;
+}
+
+.formularioInvalido {
+    padding: 15px;
+    border: 1px solid red;
+    color: red;
+}
+
+#btn-modal {
+    display: none;
+}
+.lbl-modal {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    padding: 5px;
+    background-color: #F87474;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#btnCargarTurno {
+    padding: 15px;
+    background-color: #F87474;
+    border: 1px solid black;
+    color: #fff;
+    font-size: large;
+    cursor: pointer;
+}
