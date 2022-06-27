@@ -1,4 +1,4 @@
-//funcon que valida los inputs del form
+//funcon que valida luego de presionar submit 
 function formValidacion(input) {
     console.log(input);
     let valueNombre = document.getElementById(input);
@@ -56,14 +56,14 @@ function cargarTurno(e){
      //Obtengo el mes ingresado en el formulario
      mes = document.getElementById("Mes").value;
      console.log(mes);
-      //Valido Mes, si no es correcto creo el mensaje de error
+     //Valido Mes, si no es correcto creo el mensaje de error
      if (mes < 1 || mes > 12 || mes == null || mes == "") {
-        mesID = document.getElementById("Mes").id;
-        formValidacion(mesID);
+         mesID = document.getElementById("Mes").id;
+         formValidacion(mesID);
      } else { 
-        let valueMes = document.getElementById("Mes");
-        valueMes.className = "formulario"; //Cambio al color original por esta bien la validacion
-    }
+         let valueMes = document.getElementById("Mes");
+         valueMes.className = "formulario"; //Cambio al color original por esta bien la validacion
+     }
 
     dia = document.getElementById("Dia").value;
     console.log(dia);
@@ -94,15 +94,17 @@ function cargarTurno(e){
     }
 }
 
+
 //funcion que valida si el turno esta disponible
-function disponibilidadYGuardado(e){
+function disponibilidadYGuardado(){
     
     if (listaTurnos.length != 0){ //Si es el primer turno, pasa directo a guardar el turno
+        turnoHabilitado = true;
         listaTurnos.forEach((item) => {  // recorre el array y en cada posicion comparo el dia, mes y hora, si todas coinciden significa que ya existe el turno por lo tanto NO esta disponible
             if (item.mes == nuevoTurno.mes){
                 if (item.dia == nuevoTurno.dia){
                     if (item.hora == nuevoTurno.hora){
-                        bandera = false;
+                        turnoHabilitado = false;
                     }
                 }
             } else {
@@ -112,30 +114,59 @@ function disponibilidadYGuardado(e){
     } else {
         bandera = true;
     }
-
-    if (bandera == true) {
+    //Si bandera es true significa que no es compatible
+    if (bandera == true && turnoHabilitado == true) {
         guardarTurno();
     } else {
         alert("Lo lamento, pero el turno ya NO esta disponible");
     }
+
 }
+
 
 //funcion que guardar los objetos en un array
 function guardarTurno(){
      listaTurnos.push(nuevoTurno);
      console.log(listaTurnos);
      // Imprimo el mensaje de guardado.
-     alert("Felicitaciones su turno fue guardado para " + nuevoTurno.nombre + " " + nuevoTurno.nombre + " el dia " + nuevoTurno.dia + "/" + nuevoTurno.mes + " a las " + nuevoTurno.hora + " horas.");
+     alert("Felicitaciones su turno fue guardado para " + nuevoTurno.apellido + " " + nuevoTurno.nombre + " el dia " + nuevoTurno.dia + "/" + nuevoTurno.mes + " a las " + nuevoTurno.hora + " horas.");
 }
 
 //////////***************************    INCIO DE PROGRAMA     *************************************************///////////
-//Declaro el array
+//Declaro el array y variables globales
 const listaTurnos = [];
-let bandera = false;
+const form = document.getElementById("form");
 
-//Boton que 
-let btnCargarTurno = document.getElementById("form");
-btnCargarTurno.addEventListener("submit", cargarTurno);
+//sirve para validaciones
+let bandera = false; 
+let turnoHabilitado = true;
+
+//textoARemplazar se utiliza para mostrar en texto la validacion que se hace en el evento input
+let textoAReemplazarMes = document.getElementById("textoValidacionMes");
+let textoAReemplazarDia = document.getElementById("textoValidacionDia");
+let mes = document.getElementById("Mes");
+let dia = document.getElementById("Dia");
+
+//Evento que valida cuando se van introduciendo los inputs del mes y dia.
+mes.addEventListener("input", () => {
+    if (mes.value < 1 || mes.value > 12){
+        textoAReemplazarMes.textContent = mes.value + " no es un mes valido";
+    } else {
+        textoAReemplazarMes.textContent = "";
+    }
+});
+
+dia.addEventListener("input", () => {
+    if (dia.value < 1 || dia.value > 31){
+        textoAReemplazarDia.textContent = dia.value + " no es un dia valido";
+    } else {
+        textoAReemplazarDia.textContent = "";
+    }
+});
+
+
+//Evento para escuchar el boton cargarTurno
+form.addEventListener("submit", cargarTurno);
 
 
 

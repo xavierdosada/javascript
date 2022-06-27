@@ -1,15 +1,20 @@
 body {
     width: 100%;
     height: 100vh;
-    padding: 2% 0% 0% 0%;
+    margin: 0;
+    padding: 0;
     background-color: #F9F2ED;
     color: #fff;
+    display: flex;
 }
 
 .container {
     height: 90%;
-    justify-items: center;
-    justify-content: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     background-color: #3ab0ff;
     padding: 0% 3% 3% 3%;
     border-radius: 30px;
@@ -17,14 +22,15 @@ body {
 }
 
 h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 10%;
+    margin: 0;
+    padding-top: 2%;
     font-size: xxx-large;
     text-shadow: 1px 1px 2px #F87474;
 }
 
 ol {
+    height: 60%;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -38,24 +44,25 @@ ol {
 .diasSemana {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #FFA33B;
     text-shadow: 1px 1px 1px black;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 .efectoDia {
     display: flex;
     justify-content: center;
+    align-items: center;
     border: 1px solid #CC832F;
-    padding: 15px;
-    font-size: xx-large;
+    font-size: x-large;
     background-color: #FFB562;
     text-shadow: 1px 1px 2px black;
     
 }
 
 .efectoDia:hover {
-    color: white;
+    color: #3ab0ff;
 }
 
 /* VENTANA MODAL */
@@ -84,7 +91,7 @@ body, .modal{
 
 .contenedor {
     width: 400px;
-    height: 80vh;
+    height: 90vh;
     margin: auto;
     border-top-left-radius: 40px;
     border-bottom-right-radius: 50px;
@@ -124,8 +131,9 @@ body, .modal{
 .contenido {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 40px;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .formulario {
@@ -143,12 +151,19 @@ body, .modal{
     color: red;
 }
 
+.validacionTexto {
+    color: red;
+}
+
 #btn-modal {
     display: none;
 }
 .lbl-modal {
+    width: 100%;
+    height: 10%;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: x-large;
     padding: 5px;
     background-color: #F87474;
@@ -163,4 +178,12 @@ body, .modal{
     color: #fff;
     font-size: large;
     cursor: pointer;
+}
+
+#textoValidacionMes{
+    color: red;
+}
+
+#textoValidacionDia{
+    color: red;
 }
