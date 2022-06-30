@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body id="gridMain">
+    <div class="menu"></div>
+    <div class="container">
+        <h1>Julio 2022</h1>
+        <ol>
+            <li class="diasSemana">Lunes</li>
+            <li class="diasSemana">Martes</li>
+            <li class="diasSemana">Miercoles</li>
+            <li class="diasSemana">Jueves</li>
+            <li class="diasSemana">Viernes</li>
+            <li class="diasSemana">Sabado</li>
+            <li class="diasSemana">Domingo</li>
+
+            <li class= "efectoDia" id="primerDia">1</li>
+            <li class="efectoDia">2</li>
+            <li class="efectoDia">3</li>
+            <li class="efectoDia">4</li>
+            <li class="efectoDia">5</li>
+            <li class="efectoDia">6</li>
+            <li class="efectoDia">7</li>
+            <li class="efectoDia">8</li>
+            <li class="efectoDia">9</li>
+            <li class="efectoDia">10</li>
+            <li class="efectoDia">11</li>
+            <li class="efectoDia">12</li>
+            <li class="efectoDia">13</li>
+            <li class="efectoDia">14</li>
+            <li class="efectoDia">15</li>
+            <li class="efectoDia">16</li>
+            <li class="efectoDia">17</li>
+            <li class="efectoDia">18</li>
+            <li class="efectoDia">19</li>
+            <li class="efectoDia">20</li>
+            <li class="efectoDia">21</li>
+            <li class="efectoDia">22</li>
+            <li class="efectoDia">23</li>
+            <li class="efectoDia">24</li>
+            <li class="efectoDia">25</li>
+            <li class="efectoDia">26</li>
+            <li class="efectoDia">27</li>
+            <li class="efectoDia">28</li>
+            <li class="efectoDia">29</li>
+            <li class="efectoDia">30</li>
+            <li class="efectoDia">31</li>
+        </ol>
+        <!-- VENTANA MODAL CON FORMULARIO-->
+        <input type="checkbox" id="btn-modal">
+        <label for="btn-modal" class="lbl-modal">Cargar Turno</label>
+        <div class="modal">
+            <div class="contenedor">
+                <header>Guarde su Turno</header>
+                <label for="btn-modal">X</label>
+                <form class="contenido" id="form" >
+                    <input class="formulario" id="Nombre" type="text" name="nombres" placeholder="Nombre">
+                    <input class="formulario" id="Apellido" type="text" name="apellido"  placeholder="Apellido">
+                    <input class="formulario" id="Edad" type="text" name="correo" placeholder="Edad">
+                    <input class="formulario" id="Fecha" type="date" name="fecha">
+                    <input class="formulario" id="Hora" type="time" step="600" min="07:30" max="21:00" name="hora" placeholder="Hora">
+                    <input for="btn-modalExito" class="formulario" id="btnCargarTurno" type="submit" value="Reservar Turno">
+                </form>  
+            </div>
+        </div>
+    </div>
+    <div class="tablaTurnos">
+        <table id="turnosTable" class="cabezeraTabla">
+            <thead>
+                <tr>
+                    <th>Editar</th>
+                    <th>Confirm/Asist</th>
+                    <th>Hora</th>
+                    <th class="thFecha">Fecha</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Modalidad</th>
+                    <th>Medio de Pago</th>
+                    <th>Confirm Pago</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>   
+        </table>
+    </div>
+    <footer class="padreFooter">
+        <div class="footer"></div> 
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+</html>

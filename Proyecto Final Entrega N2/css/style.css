@@ -1,0 +1,262 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #F9F2ED;
+    color: #fff;
+    display: flex;
+    grid-area: ;
+}
+
+#gridMain {
+    display: grid;
+    /*Estructura grids areas*/
+    grid-template-areas: 
+    "menu calendar"
+    "menu datos"
+    "menu footer";
+
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 100% 110% 10%;
+}
+
+/********************** MENU *****************/
+
+.menu {
+    width: 10%;
+    height: 100%;
+    box-shadow: 0px 0px 10px gray;
+    position: fixed;
+}
+
+/********************** CALENDARIO DE TURNOS *****************/
+
+.container {
+    grid-area: calendar;
+    height: 90%;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3ab0ff;
+    padding: 0% 3% 3% 3%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+h1 {
+    height: 10%;
+    margin: 0;
+    padding-top: 2%;
+    font-size: xxx-large;
+    text-shadow: 1px 1px 2px #F87474;
+}
+
+ol {
+    height: 60%;
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+}
+
+#primerDia {
+    grid-column-start: 5;
+}
+
+.diasSemana {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFA33B;
+    text-shadow: 1px 1px 1px black;
+    font-size: x-large;
+}
+
+.efectoDia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #CC832F;
+    font-size: x-large;
+    background-color: #FFB562;
+    text-shadow: 1px 1px 2px black;
+    
+}
+
+.efectoDia:hover {
+    color: #3ab0ff;
+}
+
+/* VENTANA MODAL */
+
+body, .modal{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0,0,0,0.5);
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btn-modal:checked ~ .modal{
+    opacity: 1;
+    visibility: visible;
+}
+
+.contenedor {
+    width: 400px;
+    height: 90vh;
+    margin: auto;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 50px;
+    background: #fff;
+    box-shadow: 1px 7px 25px rgba(0, 0, 0, 0,6);
+    transition: all 500ms ease;
+    position: relative;
+    transform: translateY(-30%);
+}
+
+#btn-modal:checked ~ .modal .contenedor{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.contenedor header{
+    background: #FFB562;
+    padding: 10px 10px 10px 30px;
+    color: #fff;
+    border-top-left-radius: 50px;
+    font-size: large;
+}
+
+.contenedor label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid black;
+    color: black;
+}
+
+.formularioInvalido {
+    padding: 15px;
+    border: 1px solid red;
+    color: red;
+}
+
+.validacionTexto {
+    color: red;
+}
+
+#btn-modal {
+    display: none;
+}
+.lbl-modal {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    padding: 5px;
+    background-color: #F87474;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#btnCargarTurno {
+    padding: 15px;
+    background-color: #F87474;
+    border: 1px solid black;
+    color: #fff;
+    font-size: large;
+    cursor: pointer;
+}
+
+#textoValidacionMes{
+    color: red;
+}
+
+#textoValidacionDia{
+    color: red;
+}
+
+/********************** TABLA TURNOS *****************/
+
+.tablaTurnos {
+    grid-area: datos;
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 50px;
+}
+
+.cabezeraTabla {
+    box-shadow: 0px 0px 10px gray;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #3ab0ff;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+}
+
+.thFecha {
+    padding: 0px 40px 0px 40px;
+}
+
+
+/********************** FOOTER *****************/
+.padreFooter {
+    grid-area: footer;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    color: #3ab0ff;
+    box-shadow: 10px 0px 10px gray;
+    justify-content: center;
+    text-align: center;
+}
