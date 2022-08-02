@@ -1,0 +1,387 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #F9F2ED;
+    color: #fff;
+    display: flex;
+}
+
+#gridMain {
+    display: grid;
+    /*Estructura grids areas*/
+    grid-template-areas: 
+    "menu calendar"
+    "menu datos"
+    "menu footer";
+
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 100% 110% 10%;
+}
+
+/********************** MENU *****************/
+
+.menu {
+    width: 10%;
+    height: 100%;
+    box-shadow: 0px 0px 10px gray;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: black;
+}
+
+.menuFilter{
+    color: black;
+    width: 100%;
+    height: 1em;
+    /* font-size: xxx-small; */
+    cursor: pointer;
+}
+
+.containerFilterHora {
+    background-color: #F9F2ED;
+    height: 0;
+    overflow: visible;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.menuPatients{
+    width: 100%;
+    color: black;
+    font-size: xxx-large;
+    cursor: pointer;
+}
+
+.containerFilter{
+    color: black;
+}
+.menuPay{
+    width: 100%;
+    font-size: xxx-large;
+    cursor: pointer;
+}
+
+/********************** CALENDARIO DE TURNOS *****************/
+
+.container {
+    grid-area: calendar;
+    height: 90%;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3ab0ff;
+    padding: 0% 3% 3% 3%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+h1 {
+    height: 10%;
+    margin: 0;
+    padding-top: 2%;
+    font-size: xxx-large;
+    text-shadow: 1px 1px 2px #F87474;
+}
+
+h5 {
+    color: white;
+}
+
+#btnWithoutEffect{
+    cursor: default;
+}
+
+ol {
+    height: 60%;
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+}
+
+#primerDia {
+    grid-column-start: 5;
+}
+
+.diasSemana {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFA33B;
+    text-shadow: 1px 1px 1px black;
+    font-size: x-large;
+}
+
+.efectoDia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #CC832F;
+    font-size: x-large;
+    background-color: #FFB562;
+    text-shadow: 1px 1px 2px black;
+    
+}
+
+.efectoDia:hover {
+    color: #3ab0ff;
+}
+
+/* VENTANA MODAL CARGAR TURNO*/
+.turnButton{
+    width: 100%;
+    height: 10%;
+    color: #fff;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    padding: 5px;
+    background-color: #F87474;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modalContainer{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 30%;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    position: relative;
+    transition: transform 1s;
+    transform: translateY(0%);
+}
+
+.textModal {
+    background-color: #fff;
+    color: #F87474;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalClose {
+    transform: translateY(-200%);
+}
+
+.close{
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    background-color: #F87474;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid black;
+    color: black;
+}
+
+.formularioInvalido {
+    padding: 15px;
+    border: 1px solid red;
+    color: red;
+}
+
+.validacionTexto {
+    color: red;
+}
+
+#btnCargarTurno {
+    padding: 15px;
+    background-color: #F87474;
+    color: #fff;
+    font-size: large;
+    cursor: pointer;
+}
+
+/********************** EDITAR TURNOS *****************/
+.turnButtonEdit{
+    width: 80%;
+    height: 10%;
+    font-size:medium;
+    color: #fff;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: #3ab0ff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modalContainerEdit{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalEdit {
+    width: 30%;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    position: relative;
+    transition: transform 1s;
+    transform: translateY(0%);
+}
+
+/* .modalCloseEdit {
+    transform: translateY(-200%);
+} */
+
+.closeEdit {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    background-color: #3ab0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.textModalEdit {
+    background-color: #fff;
+    color: #3ab0ff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#btnEditTurn {
+    padding: 15px;
+    background-color: #3ab0ff;
+    border: 1px solid black;
+    color: #fff;
+    font-size: large;
+    cursor: pointer;
+}
+
+/********************** TABLA TURNOS *****************/
+
+.tablaTurnos {
+    grid-area: datos;
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 50px;
+    overflow-y: auto;
+    z-index: -1;
+}
+
+.cabezeraTabla {
+    box-shadow: 0px 0px 10px gray;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #3ab0ff;
+    position: sticky;
+    top: 0;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+/********************** MODAL EDITAR *****************/
+.edit-container{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+/********************** FOOTER *****************/
+.padreFooter {
+    grid-area: footer;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    color: #3ab0ff;
+    box-shadow: 10px 0px 10px gray;
+    justify-content: center;
+    text-align: center;
+}
