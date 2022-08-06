@@ -361,7 +361,6 @@ document.addEventListener("DOMContentLoaded", () => {
     turnsArrayFromStorage.forEach(e => e.turnDate = new Date(`${e.turnDate}T00:00:00`));
     //Guardo el array que se filtra con el rango horario
     let arrayFilterMonth = turnsArrayFromStorage.filter(e => e.turnDate.getMonth()+1 == actualMonth);
-    arrayFilterMonth.forEach(e => e.turnDate = e.turnDate.toLocaleDateString());
     filterTable(arrayFilterMonth);
 });
 
@@ -396,9 +395,6 @@ btnFilterDate.addEventListener("click", (e) => {
     //Modifico el turnDate para que filtre a parte de la hora tambien por el mes actual
     turnsArrayFromStorage.forEach(e => e.turnDate = new Date(`${e.turnDate}T00:00:00`));
     let arrayFormFilterDay = turnsArrayFromStorage.filter(e => e.turnDate.getDate() == formFilterDay && e.turnDate.getMonth()+1 == actualDate.getMonth()+1);
-    arrayFormFilterDay.forEach((e) => {
-        e.turnDate = e.turnDate.toLocaleDateString();
-    });
     filterTable(arrayFormFilterDay);
 });
 
